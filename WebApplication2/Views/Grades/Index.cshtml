@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Display Data";
+    string[] TableHeaders = new string[]
+    {
+        "Code",
+        "Subject",
+        "Average"
+    };
+
+}
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <h2>
+                Number Of Students: @{
+                    @WebApplication2.Services.StudentsSubjectsAverageDAO.sumOfStudents;
+                }
+            </h2>
+            <tr>
+                @{
+                    foreach (string header in TableHeaders)
+                    {
+                        <th>
+                            @header
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody style="background-color:white">
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.Code</td>
+                            <td>@Data.Subject</td>
+                            <td>@Data.CourseAverage</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

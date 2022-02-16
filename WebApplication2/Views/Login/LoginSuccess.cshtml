@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Grades";
+    string[] TableHeaders = new string[]
+    {
+        "Subject",
+        "Average"
+    };
+
+}
+
+<div class="table">
+    <h2>
+        Your Average Is: @{@WebApplication2.Services.UserDAO.avg;}
+    </h2>
+    <h3>
+        Current Email: @{@WebApplication2.Services.UserDAO.email;}
+    </h3>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                @{
+                    foreach (string header in TableHeaders)
+                    {
+                        <th>
+                            @header
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody style="background-color:white">
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.Subject</td>
+                            <td>@Data.GradeAverage</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
