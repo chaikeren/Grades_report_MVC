@@ -13,9 +13,7 @@ namespace WebApplication2.Services
 {
     public class UserDAO
     {
-        string connectionString = $"Data Source=DESKTOP-CJ3645A\\SQLEXPRESS;Initial Catalog=Ruppin_Students;" +
-                                  $"Integrated Security=True;Connect Timeout=30;Encrypt=False;" +
-                                  $"TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string connectionString = $"Your DB connection string";
 
         public static decimal avg;
         public static string email;
